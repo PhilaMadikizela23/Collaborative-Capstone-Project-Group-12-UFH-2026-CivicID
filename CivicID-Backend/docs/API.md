@@ -27,7 +27,7 @@ Registration request:
   "firstName": "Thando",
   "lastName": "Citizen",
   "email": "thando@example.com",
-  "password": "StrongPassword123!"
+  "password": "fortestudent@333"
 }
 ```
 
@@ -35,8 +35,8 @@ Login request:
 
 ```json
 {
-  "email": "thando@example.com",
-  "password": "StrongPassword123!"
+  "email": "thando@ufh.com",
+  "password": "StrongPassword@1"
 }
 ```
 
@@ -52,8 +52,8 @@ Profile request:
 ```json
 {
   "nationalIdNumber": "TEST-ID-0002",
-  "dateOfBirth": "2000-01-01",
-  "phoneNumber": "+27000000001",
+  "dateOfBirth": "2004-08-18",
+  "phoneNumber": "+27786452992",
   "addressLine1": "2 Test Street",
   "addressLine2": "",
   "city": "East London",
@@ -116,8 +116,8 @@ Save dynamic form values:
 {
   "fieldValues": {
     "fullName": "Thando Citizen",
-    "idNumber": "TEST-ID-0002",
-    "dateOfBirth": "2000-01-01",
+    "idNumber": "09030456540002",
+    "dateOfBirth": "2009-03-01",
     "phoneNumber": "+27000000001",
     "residentialAddress": "2 Test Street, East London, Eastern Cape, 5201"
   }
