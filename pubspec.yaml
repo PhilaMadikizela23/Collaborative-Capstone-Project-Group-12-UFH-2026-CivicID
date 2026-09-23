@@ -22,6 +22,7 @@ dependencies:
   # Compatible with Flutter 3.41.x / Dart 3.11.x
   camera: ^0.12.0+2
   pdfrx: ^2.4.8
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
