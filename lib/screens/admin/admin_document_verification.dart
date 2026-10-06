@@ -3,7 +3,7 @@ import 'package:pdfrx/pdfrx.dart';
 
 import '../../models/document.dart';
 import '../../services/admin_service.dart';
-import '../../services/document_service.dart';
+
 
 class AdminDocumentVerification extends StatefulWidget {
   final String? applicationId;
@@ -43,7 +43,7 @@ class _AdminDocumentVerificationState
   // ============================================================
 
   final AdminService _adminService = AdminService();
-  final DocumentService _documentService = DocumentService();
+ 
 
   // ============================================================
   // STATE
@@ -1117,11 +1117,12 @@ class _AdminDocumentVerificationState
     }
 
     try {
-      await _documentService.verifyDocument(
-        documentId: document.id,
-        comment: comment.trim(),
-        reviewedBy: 'CivicID Admin',
-      );
+     await _adminService.reviewApplicationDocument(
+  applicationId: widget.applicationId!,
+  applicationDocumentId: document.id,
+  approved: true,
+  notes: comment.trim(),
+);
 
       if (!mounted ||
           !dialogContext.mounted) {
@@ -1197,10 +1198,11 @@ class _AdminDocumentVerificationState
     }
 
     try {
-      await _documentService.rejectDocument(
-        documentId: document.id,
-        comment: cleanComment,
-        reviewedBy: 'CivicID Admin',
+     await _adminService.reviewApplicationDocument(
+  applicationId: widget.applicationId!,
+  applicationDocumentId: document.id,
+  approved: false,
+  notes: cleanComment,
       );
 
       if (!mounted ||
@@ -1277,11 +1279,15 @@ class _AdminDocumentVerificationState
     }
 
     try {
-      await _documentService.requestMoreInformation(
-        documentId: document.id,
-        comment: cleanComment,
-        reviewedBy: 'CivicID Admin',
-      );
+      if (widget.applicationId == null) {
+  throw Exception('Application ID is unavailable.');
+}
+
+await _adminService.requestMoreInformation(
+  widget.applicationId!,
+  cleanComment,
+);
+      
 
       if (!mounted ||
           !dialogContext.mounted) {
