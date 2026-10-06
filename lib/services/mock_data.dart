@@ -62,7 +62,7 @@ class MockData {
       name: "Passport",
       category: "Home Affairs",
       description: "Apply or renew your passport.",
-      requiredDocumentTypes: ["Identity Document", "Passport Photo"],
+      requiredDocumentTypes: ["Identity Document", "Passport Photo" , "Proof of Residence"],
     ),
     GovernmentService(
       id: "SRV003",
